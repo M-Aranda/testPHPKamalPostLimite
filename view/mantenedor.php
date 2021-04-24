@@ -210,7 +210,7 @@ and open the template in the editor.
                         </select>    
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" onclick="eliminarUsuario()" >Eliminar</button>
+                        <button type="button" class="btn btn-default"  >Eliminar</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
                     </div>
                 </div>
@@ -334,7 +334,7 @@ and open the template in the editor.
                         $('#tablaUsuarios').on('click', '.btn-modificar', function (e) {
                             var data = table.row($(this).parents('tr')).data();
                             // console.log(data);
-                            var usuario = cargarUsuario(data);
+                           
 
                             document.getElementById("editar_id_usuario").value = data.id_usuario;
                             document.getElementById("editar_usuario").value = data.Usuario;
@@ -352,11 +352,9 @@ and open the template in the editor.
                             }
 
 
-
-
                             var tipoPerfil = data["Perfil Usuario"];
                             //console.log(tipoPerfil);
-
+                            
                             if (tipoPerfil == "Administrador") {
                                 $('#editarPerfil').val(1);
                             } else if (tipoPerfil == "Usuario normal") {
@@ -366,26 +364,14 @@ and open the template in the editor.
                             }
 
 
-
-
-
-                            /*
-                             * document.getElementById("editarPerfil").value = data.Perfil Usuario;
-                             document.getElementById("editarEstado").value = data.Estado;
-                             */
-
-
-
-
                         });
 
 
                         // Handle click on "Delete" button
                         $('#tablaUsuarios').on('click', '.btn-eliminar', function (e) {
                             var data = table.row($(this).parents('tr')).data();
-                            console.log(data);
-                            parsedData = JSON.parse(data);
-                            var usuario = parsedData[0].id_usuario;
+                            console.log(data.Usuario);
+                         document.getElementById("eliminar_usuario").value = data.Usuario;
                             //console.log(usuario);
 
                         });
