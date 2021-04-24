@@ -178,6 +178,7 @@ and open the template in the editor.
                     </div>
                     <div class="modal-body">
 
+
                         <input type="hidden" id="eliminar_id_usuario" class="swal2-input" placeholder="ej: usuario31" disabled="true">
 
                         <h5>Usuario:</h5>
@@ -210,7 +211,7 @@ and open the template in the editor.
                         </select>    
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default"  >Eliminar</button>
+                        <button type="button" class="btn btn-default"  onclick="eliminarUsuario()">Eliminar</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Volver</button>
                     </div>
                 </div>
@@ -317,6 +318,7 @@ and open the template in the editor.
                                     "defaultContent":
                                             '<button type="button" value="id_usuario" class="btn-modificar" data-toggle="modal" data-target="#modificarUsuarioModal">Modificar</button>'
                                             + '<button type="button" value="id_usuario" class="btn-eliminar" data-toggle="modal" data-target="#eliminarUsuarioModal">Eliminar</button>'
+
                                 }
                             ],
                             "columnDefs": [
@@ -327,14 +329,14 @@ and open the template in the editor.
                                 {"title": "Email", "targets": 4},
                                 {"title": "Perfil Usuario", "targets": 5},
                                 {"title": "Estado", "targets": 6},
-                                {"title": "Opción", "targets": 7},
+                                {"title": "Opción", "targets": 7}
                             ]
                         });
 
                         $('#tablaUsuarios').on('click', '.btn-modificar', function (e) {
                             var data = table.row($(this).parents('tr')).data();
                             // console.log(data);
-                           
+
 
                             document.getElementById("editar_id_usuario").value = data.id_usuario;
                             document.getElementById("editar_usuario").value = data.Usuario;
@@ -354,7 +356,7 @@ and open the template in the editor.
 
                             var tipoPerfil = data["Perfil Usuario"];
                             //console.log(tipoPerfil);
-                            
+
                             if (tipoPerfil == "Administrador") {
                                 $('#editarPerfil').val(1);
                             } else if (tipoPerfil == "Usuario normal") {
@@ -370,9 +372,39 @@ and open the template in the editor.
                         // Handle click on "Delete" button
                         $('#tablaUsuarios').on('click', '.btn-eliminar', function (e) {
                             var data = table.row($(this).parents('tr')).data();
+
                             console.log(data.Usuario);
-                         document.getElementById("eliminar_usuario").value = data.Usuario;
-                            //console.log(usuario);
+
+                            document.getElementById("eliminar_usuario").value = data.Usuario;
+                            document.getElementById("eliminar_id_usuario").value = data.id_usuario;
+
+                            document.getElementById("eliminar_nombres").value = data.Nombres;
+                            document.getElementById("eliminar_a_paterno").value = data.APaterno;
+                            document.getElementById("eliminar_a_materno").value = data.AMaterno;
+                            document.getElementById("eliminar_email").value = data.Email;
+
+
+                            var estado = data.Estado;
+
+                            if (estado == "Activo") {
+                                $('#eliminarEstado').val(1);
+                            } else if (estado == "Inactivo") {
+                                $('#eliminarEstado').val(0);
+                            }
+
+
+                            var tipoPerfil = data["Perfil Usuario"];
+                            //console.log(tipoPerfil);
+
+                            if (tipoPerfil == "Administrador") {
+                                $('#eliminarPerfil').val(1);
+                            } else if (tipoPerfil == "Usuario normal") {
+                                $('#eliminarPerfil').val(2);
+                            } else if (tipoPerfil == "Supervisor") {
+                                $('#eliminarPerfil').val(3);
+                            }
+
+
 
                         });
 
@@ -453,9 +485,26 @@ and open the template in the editor.
 
 
                     function eliminarUsuario() {
+                        var idUsuario = document.getElementById("eliminar_id_usuario").value;
 
+                        $.ajax({
+                            url: '../controller/EliminarUsuario.php',
+                            type: 'POST',
+                            data: {
+                                'id_usuario': idUsuario
+                            },
+                            success: function (result) { //we got the response
+                                Swal.fire('Usuario eliminado');
+                                alert(result);
 
+                            },
+                            error: function (jqxhr, status, exception) {
+                                Swal.fire('Hubo un error');
+                            }
+                        })
                     }
+
+                    
 
 
 

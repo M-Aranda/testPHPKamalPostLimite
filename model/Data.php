@@ -113,7 +113,8 @@ class Data {
     }
 
     public function eliminarUsuario($id_usuario) {
-        $query = "DELETE FROM USUARIO WHERE id_usuario = ' . $id_usuario) . '";
+        $query = "DELETE FROM USUARIO WHERE id_usuario = " . $id_usuario . "";
+        echo $query;
         $this->usarConexion($query);
     }
 

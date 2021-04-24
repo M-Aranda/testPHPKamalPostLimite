@@ -12,4 +12,5 @@ $id_usuario = isset($_REQUEST['id_usuario'])?$_REQUEST['id_usuario']:"";
 
 $data->eliminarUsuario($id_usuario);
 
+
 ?>
