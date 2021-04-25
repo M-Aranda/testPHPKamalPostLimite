@@ -366,6 +366,8 @@ and open the template in the editor.
                             }
 
 
+
+
                         });
 
 
@@ -452,8 +454,13 @@ and open the template in the editor.
                                 'id_perfil': perfil, 'usuario': usuario, 'clave': "123", 'nombres': nombres, 'ap_paterno': aPaterno, 'ap_materno': aMaterno, 'email': email, 'estado': estado
                             },
                             success: function (result) { //we got the response
-                                Swal.fire('Usuario agregado');
-                                //alert(result);
+                                Swal.fire({title: "Éxito!",
+                                    text: "Usuario agregado!",
+                                    type: "success"}).then(okay => {
+                                    if (okay) {
+                                        location.reload();
+                                    }
+                                });
 
                             },
                             error: function (jqxhr, status, exception) {
@@ -494,8 +501,14 @@ and open the template in the editor.
                                 'id_usuario': idUsuario
                             },
                             success: function (result) { //we got the response
-                                Swal.fire('Usuario eliminado');
-                                alert(result);
+                                Swal.fire({title: "Éxito!",
+                                    text: "Usuario eliminado!",
+                                    type: "success"}).then(okay => {
+                                    if (okay) {
+                                        location.reload();
+                                    }
+                                });
+                                //alert(result);
 
                             },
                             error: function (jqxhr, status, exception) {
@@ -504,7 +517,7 @@ and open the template in the editor.
                         })
                     }
 
-                    
+
 
 
 
@@ -537,8 +550,16 @@ and open the template in the editor.
                                 'idUsuario': idUsuario, 'id_perfil': perfil, 'usuario': usuario, 'clave': "123", 'nombres': nombres, 'ap_paterno': a_paterno, 'ap_materno': a_materno, 'email': email, 'estado': estado
                             },
                             success: function (result) { //we got the response
-                                Swal.fire('Usuario actualizado');
+                                //Swal.fire('Usuario actualizado');
+                                Swal.fire({title: "Éxito!",
+                                    text: "Usuario actualizado!",
+                                    type: "success"}).then(okay => {
+                                    if (okay) {
+                                        location.reload();
+                                    }
+                                });
                                 console.log(result);
+
 
                             },
                             error: function (jqxhr, status, exception) {

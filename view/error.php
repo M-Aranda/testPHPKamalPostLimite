@@ -8,10 +8,23 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
+        <style>
+
+            .center {
+                margin: auto;
+                width: 10%;
+                border: 3px solid #FF0000;
+                padding: 10px;
+            }
+        </style>
     </head>
+
     <body>
 
-        <h1>No ingresó los datos correctos</h1>
-        <a href="index.php"><button>Volver</button></a>
+        <div class="center">
+            <h1>No ingresó los datos correctos</h1>
+            <br>
+            <a href="index.php"><button>Volver</button></a>
+        </div>
     </body>
 </html>

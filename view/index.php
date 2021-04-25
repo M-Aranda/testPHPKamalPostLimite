@@ -58,7 +58,7 @@
                 <input type="password" name="clave" id="clave" placeholder="clave :" required maxlength="10">
                 <br>
                 <br>
-                <input id="ingresar" type="submit" value="Login" style="background-color: #007bff ">
+                <input id="ingresar" type="submit" value="Entrar" style="background-color: #007bff ">
             </form>
         </div>
 
