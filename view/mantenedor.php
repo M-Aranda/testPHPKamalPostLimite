@@ -33,15 +33,15 @@ and open the template in the editor.
             #contenedorTituloYTabla{
                 border-style: solid;
             }
-            
-            
+
+
             header{
                 background-color: #008000;
             }
 
             #TituloMantenedor{
                 background-color: #008000;
-                
+
             }
 
             #ituloMantenedor,btnCerrar  {
@@ -53,6 +53,18 @@ and open the template in the editor.
             #btnCerrar{
                 background-color: #FFFFFF;
                 color: black;
+            }
+
+            #tituloDeModalAgregarUsuario{
+                background-color: #00ccff;
+            }
+
+            .objetoAlineado{
+                display: inline-block;
+            }
+            
+            .pseudoLabel{
+                font-weight: bold;;
             }
 
         </style>
@@ -104,34 +116,38 @@ and open the template in the editor.
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Agregar usuario</h4>
+                        <h4 class="modal-title" id="tituloDeModalAgregarUsuario">Agregar usuario</h4>
                     </div>
                     <div class="modal-body">
 
-                        <h5>Usuario:</h5>
+                        <h5 class="pseudoLabel">Usuario:</h5>
                         <input type="text" id="agregar_usuario" class="swal2-input" placeholder="ej: usuario31">
 
-                        <h5>Nombres:</h5>
+                        <h5 class="pseudoLabel">Nombres:</h5>
                         <input type="text" id="agregar_nombres" class="swal2-input" placeholder="ej: Feliper Andres">
 
-                        <h5>A.Paterno</h5>
-                        <input type="text" id="agregar_a_paterno" class="swal2-input" placeholder="ej: Zaldivar">
+                        <h5 class="pseudoLabel">A.Paterno&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;A.Materno</h5>
 
-                        <h5>A.Materno</h5>
-                        <input type="text" id="agregar_a_materno" class="swal2-input" placeholder="ej: Norambuena">
 
-                        <h5>Email:</h5>
-                        <input type="text" id="agregar_email" class="swal2-input" placeholder="ej: nmbn@gmail.com">
+                        <input class="objetoAlineado" type="text" id="agregar_a_paterno" class="swal2-input" placeholder="ej: Zaldivar">
+                        &emsp;&emsp;&emsp;&emsp;&emsp;
+                        <input class="objetoAlineado" type="text" id="agregar_a_materno" class="swal2-input" placeholder="ej: Norambuena">
 
-                        <h5>Perfil:</h5>
-                        <select id="seleccionarPerfil" name="seleccionarPerfil" >
+
+                        <h5 class="pseudoLabel">Email:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Perfil:</h5>
+                       
+                        <input class="objetoAlineado" type="text" id="agregar_email" class="swal2-input" placeholder="ej: nmbn@gmail.com">
+                       &emsp;&emsp;&emsp;&emsp;&emsp;
+                        <select class="objetoAlineado" id="seleccionarPerfil" name="seleccionarPerfil" >
                             <?php
                             foreach ($listadoDePerfiles as $p) {
                                 echo "<option value=" . $p->getId_perfil() . ">" . $p->getPerfil() . "</option>";
                             }
                             ?>                            
                         </select>
-                        <h5>Estado:</h5>
+                        
+                        
+                        <h5 class="pseudoLabel">Estado:</h5>
                         <select id="seleccionarEstado" name="seleccionarEstado" >
                             <option value="1">Activo</option>
                             <option value="0">Inactivo</option>
@@ -257,31 +273,31 @@ and open the template in the editor.
                     &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button id="btnCerrar" href="index.php">Cerrar aplicación</button> </h3>
 
                 <br>
-            
 
 
-            <br>
-            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#agregarUsuarioModal">Agregar usuario</button>
-            <br>
-            <br>
-            <br>
-            <br>
+
+                <br>
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#agregarUsuarioModal">Agregar usuario</button>
+                <br>
+                <br>
+                <br>
+                <br>
 
 
-    
 
-    <!--
-              <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modificarUsuarioModal">Modificar usuario</button>
-              <br>
-              <br>
-  
-              <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#eliminarUsuarioModal">Eliminar usuario</button>
-              <br>
-              <br>
-    -->
 
-    <table id="tablaUsuarios" class="display"></table>
-     
+                <!--
+                          <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modificarUsuarioModal">Modificar usuario</button>
+                          <br>
+                          <br>
+              
+                          <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#eliminarUsuarioModal">Eliminar usuario</button>
+                          <br>
+                          <br>
+                -->
+
+                <table id="tablaUsuarios" class="display"></table>
+
             </div>
         </div>
 <!--                <thead>
@@ -620,5 +636,5 @@ and open the template in the editor.
         </script>
 
 
-</body>
+    </body>
 </html>
