@@ -62,9 +62,17 @@ and open the template in the editor.
             .objetoAlineado{
                 display: inline-block;
             }
-            
+
             .pseudoLabel{
                 font-weight: bold;;
+            }
+
+            #tituloDeModalModificarUsuario{
+                background-color: #ffff66;
+            }
+
+            #tituloDeModalEliminarUsuario{
+                background-color: #ff0000;
             }
 
         </style>
@@ -135,9 +143,9 @@ and open the template in the editor.
 
 
                         <h5 class="pseudoLabel">Email:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Perfil:</h5>
-                       
+
                         <input class="objetoAlineado" type="text" id="agregar_email" class="swal2-input" placeholder="ej: nmbn@gmail.com">
-                       &emsp;&emsp;&emsp;&emsp;&emsp;
+                        &emsp;&emsp;&emsp;&emsp;&emsp;
                         <select class="objetoAlineado" id="seleccionarPerfil" name="seleccionarPerfil" >
                             <?php
                             foreach ($listadoDePerfiles as $p) {
@@ -145,8 +153,8 @@ and open the template in the editor.
                             }
                             ?>                            
                         </select>
-                        
-                        
+
+
                         <h5 class="pseudoLabel">Estado:</h5>
                         <select id="seleccionarEstado" name="seleccionarEstado" >
                             <option value="1">Activo</option>
@@ -167,35 +175,36 @@ and open the template in the editor.
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Editar Usuario</h4>
+                        <h4 class="modal-title" id="tituloDeModalModificarUsuario">Editar Usuario</h4>
                     </div>
                     <div class="modal-body">
 
                         <input type="hidden" id="editar_id_usuario" class="swal2-input" placeholder="ej: usuario31" disabled="true">
-                        <h5>Usuario:</h5>
+                        <h5 class="pseudoLabel">Usuario:</h5>
                         <input type="text" id="editar_usuario" class="swal2-input" placeholder="ej: usuario31" disabled="true">
 
-                        <h5>Nombres:</h5>
+                        <h5 class="pseudoLabel">Nombres:</h5>
                         <input type="text" id="editar_nombres" class="swal2-input" placeholder="ej: Feliper Andres">
 
-                        <h5>A.Paterno</h5>
-                        <input type="text" id="editar_a_paterno" class="swal2-input" placeholder="ej: Zaldivar">
+                        <h5 class="pseudoLabel">A.Paterno&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;A.Materno</h5>
 
-                        <h5>A.Materno</h5>
-                        <input type="text" id="editar_a_materno" class="swal2-input" placeholder="ej: Norambuena">
+                        <input class="objetoAlineado" type="text" id="editar_a_paterno" class="swal2-input" placeholder="ej: Zaldivar">
+                        &emsp;&emsp;&emsp;&emsp;&emsp;
+                        <input class="objetoAlineado" type="text" id="editar_a_materno" class="swal2-input" placeholder="ej: Norambuena">
 
-                        <h5>Email:</h5>
-                        <input type="text" id="editar_email" class="swal2-input" placeholder="ej: nmbn@gmail.com">
 
-                        <h5>Perfil:</h5>
-                        <select id="editarPerfil" name="editarPerfil" >
+                        <h5 class="pseudoLabel">Email:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Perfil:</h5>
+
+                        <input class="objetoAlineado" type="text" id="editar_email" class="swal2-input" placeholder="ej: nmbn@gmail.com">
+                        &emsp;&emsp;&emsp;&emsp;&emsp;
+                        <select class="objetoAlineado" id="editarPerfil" name="editarPerfil" >
                             <?php
                             foreach ($listadoDePerfiles as $p) {
                                 echo "<option value=" . $p->getId_perfil() . ">" . $p->getPerfil() . "</option>";
                             }
                             ?>                            
                         </select>
-                        <h5>Estado:</h5>
+                        <h5 class="pseudoLabel">Estado:</h5>
                         <select id="editarEstado" name="editarEstado" >
                             <option value="1">Activo</option>
                             <option value="0">Inactivo</option>
@@ -216,37 +225,38 @@ and open the template in the editor.
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Eliminar Usuario</h4>
+                        <h4 class="modal-title" id="tituloDeModalEliminarUsuario">Eliminar Usuario</h4>
                     </div>
                     <div class="modal-body">
 
 
                         <input type="hidden" id="eliminar_id_usuario" class="swal2-input" placeholder="ej: usuario31" disabled="true">
 
-                        <h5>Usuario:</h5>
+                        <h5 class="pseudoLabel">Usuario:</h5>
                         <input type="text" id="eliminar_usuario" class="swal2-input" placeholder="ej: usuario31" disabled="true">
 
-                        <h5>Nombres:</h5>
+                        <h5 class="pseudoLabel">Nombres:</h5>
                         <input type="text" id="eliminar_nombres" class="swal2-input" placeholder="ej: Feliper Andres" disabled="true">
 
-                        <h5>A.Paterno</h5>
-                        <input type="text" id="eliminar_a_paterno" class="swal2-input" placeholder="ej: Zaldivar" disabled="true">
+                        <h5 class="pseudoLabel">A.Paterno&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;A.Materno</h5>
+                        <input class="objetoAlineado" type="text" id="eliminar_a_paterno" class="swal2-input" placeholder="ej: Zaldivar" disabled="true">
+                        &emsp;&emsp;&emsp;&emsp;&emsp;
+                        <input class="objetoAlineado" type="text" id="eliminar_a_materno" class="swal2-input" placeholder="ej: Norambuena" disabled="true">
 
-                        <h5>A.Materno</h5>
-                        <input type="text" id="eliminar_a_materno" class="swal2-input" placeholder="ej: Norambuena" disabled="true">
+                        <h5 class="pseudoLabel" >Email:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Perfil:</h5>
+                        
+                        <input class="objetoAlineado" type="text" id="eliminar_email" class="swal2-input" placeholder="ej: nmbn@gmail.com" disabled="true">
+                        &emsp;&emsp;&emsp;&emsp;&emsp;
 
-                        <h5>Email:</h5>
-                        <input type="text" id="eliminar_email" class="swal2-input" placeholder="ej: nmbn@gmail.com" disabled="true">
-
-                        <h5>Perfil:</h5>
-                        <select id="eliminarPerfil" name="eliminarPerfil" disabled="true">
+                        
+                        <select id="eliminarPerfil" class="pseudoLabel" name="eliminarPerfil" disabled="true">
                             <?php
                             foreach ($listadoDePerfiles as $p) {
                                 echo "<option value=" . $p->getId_perfil() . ">" . $p->getPerfil() . "</option>";
                             }
                             ?>                            
                         </select>
-                        <h5>Estado:</h5>
+                        <h5 class="pseudoLabel">Estado:</h5>
                         <select id="eliminarEstado" name="eliminarEstado" disabled="true">
                             <option value="1">Activo</option>
                             <option value="0">Inactivo</option>
