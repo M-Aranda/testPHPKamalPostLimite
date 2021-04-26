@@ -280,7 +280,7 @@ and open the template in the editor.
                     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                    &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button id="btnCerrar" href="index.php">Cerrar aplicación</button> </h3>
+                    &emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button onclick="cerrarSesion()"id="btnCerrar" href="index.php">Cerrar aplicación</button> </h3>
 
                 <br>
 
@@ -363,7 +363,9 @@ and open the template in the editor.
 
         <script>
 
-
+  document.getElementById("btnCerrar").onclick = function () {
+        location.href = "index.php";
+    };
 
             var dataSet =<?php echo json_encode($listadoDeUsuariosParaJSON); ?>;
             //console.log(dataSet);
